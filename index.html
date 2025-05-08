@@ -66,17 +66,19 @@
 
   <!-- Vanta Topology Init -->
   <script>
-    VANTA.TOPOLOGY({
-      el: "#vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color: 0x5eead4,           // mint-turquoise
-      backgroundColor: 0x111827 // dark grey
+    window.addEventListener('DOMContentLoaded', () => {
+      VANTA.TOPOLOGY({
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x5eead4,           // mint-turquoise
+        backgroundColor: 0x111827 // dark grey
+      });
     });
   </script>
 
