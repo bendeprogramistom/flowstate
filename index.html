@@ -11,9 +11,9 @@
       scroll-behavior: smooth;
     }
   </style>
-  <!-- Vanta & Three -->
+  <!-- Vanta & Three.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
 </head>
 <body class="text-gray-300 font-sans">
 
@@ -33,7 +33,9 @@
   <!-- About -->
   <section class="py-16 px-6 bg-gray-900 text-center">
     <h2 class="text-3xl font-semibold mb-6 text-purple-400">About Me</h2>
-    <p class="max-w-3xl mx-auto text-gray-400">My name is Michau. I've been making music since 2003, driven by a deep love for sound design, rhythm, and the raw energy of the underground.</p>
+    <p class="max-w-3xl mx-auto text-gray-400">
+      My name is Michau. I've been making music since 2003, driven by a deep love for sound design, rhythm, and the raw energy of the underground.
+    </p>
   </section>
 
   <!-- Gallery -->
@@ -64,18 +66,21 @@
 
   <!-- Vanta Init -->
   <script>
-    VANTA.WAVES({
+    VANTA.NET({
       el: "#vanta-bg",
       mouseControls: true,
       touchControls: true,
       gyroControls: false,
-      shininess: 50,
-      waveHeight: 20,
-      waveSpeed: 0.7,
-      zoom: 1.2,
-      color: 0x6b21a8,
-      backgroundColor: 0x111827
-    });
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x6b21a8,           // purpurowy akcent
+      backgroundColor: 0x111827, // tło strony
+      points: 12.0,
+      maxDistance: 20.0,
+      spacing: 18.0
+    })
   </script>
 
 </body>
