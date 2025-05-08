@@ -2,65 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FlowState | Electronic Music DJ & Producer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pixi.js@7.x/dist/pixi.min.js"></script>
   <style>
     body {
+      margin: 0;
       background-color: #111827;
-      scroll-behavior: smooth;
+      overflow: hidden;
+    }
+    #vanta-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      text-align: center;
+      padding-top: 20vh;
+      font-family: sans-serif;
+    }
+    .content h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    .content p {
+      font-size: 1.5rem;
+      color: #ccc;
     }
   </style>
-  <!-- Vanta.js & Three.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.trunk.min.js"></script>
 </head>
-<body class="text-gray-300 font-sans">
-
-  <!-- Hero with VANTA.TRUNK -->
-  <section id="vanta-bg" class="min-h-screen flex flex-col justify-center items-center text-center p-8 relative z-10">
-    <h1 class="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-pulse">
-      FlowState
-    </h1>
-    <p class="text-xl text-gray-400 mb-8 max-w-xl">
-      Crafting deep electronic journeys since 2003. Ambient. Techno. Soul.
-    </p>
-    <a href="#contact" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl text-white font-semibold text-lg transition transform hover:scale-105 shadow-md">
-      Contact Me
-    </a>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="py-16 px-6 bg-gray-900 text-center">
-    <h2 class="text-3xl font-semibold mb-6 text-purple-400">Contact</h2>
-    <p class="text-gray-400 mb-4">Want to book a set or collaborate? Reach out:</p>
-    <a href="mailto:yourmail@example.com" class="text-purple-500 hover:underline">yourmail@example.com</a>
-    <div class="mt-4 flex justify-center gap-4">
-      <a href="#" class="text-gray-400 hover:text-purple-400">Instagram</a>
-      <a href="#" class="text-gray-400 hover:text-purple-400">SoundCloud</a>
-      <a href="#" class="text-gray-400 hover:text-purple-400">YouTube</a>
-    </div>
-  </section>
-
-  <footer class="text-center text-gray-500 py-6 text-sm bg-gray-900">
-    &copy; 2025 FlowState. All rights reserved.
-  </footer>
-
-  <!-- Vanta TRUNK Init -->
+<body>
+  <div id="vanta-bg"></div>
+  <div class="content">
+    <h1>FlowState</h1>
+    <p>Crafting deep electronic journeys since 2003. Ambient. Techno. Soul.</p>
+  </div>
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      VANTA.TRUNK({
-        el: "#vanta-bg",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        scale: 1.0,
-        scaleMobile: 1.0,
-        backgroundColor: 0x111827,
-        color: 0x5eead4 // mint
-      });
+    const app = new PIXI.Application({
+      resizeTo: window,
+      backgroundAlpha: 0,
+      antialias: true
     });
-  </script>
+    document.getElementById('vanta-bg').appendChild(app.view);
 
-</body>
-</html>
+    const graphics = new PIXI.Graphics();
+    app.stage.addChild(graphics);
+
+    const lines = [];
+    const lineCount = 50;
+    for (let i = 0; i < lineCount; i++) {
+      lines.push({
+        x: Math.random() * app.screen.width,
