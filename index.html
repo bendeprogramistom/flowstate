@@ -7,21 +7,27 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-color: #111827; /* Bardzo ciemny szary */
+      background-color: #111827;
       scroll-behavior: smooth;
     }
   </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
-
+  <!-- Vanta & Three -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
 </head>
 <body class="text-gray-300 font-sans">
 
-  <!-- Hero -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center p-8">
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-purple-500">FlowState</span></h1>
-    <p class="text-xl text-gray-400 mb-8 max-w-xl">I create unique electronic sounds by blending passion with precision.</p>
-    <a href="#gallery" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl text-white transition">Check out my sets & productions</a>
+  <!-- Hero with Vanta -->
+  <section id="vanta-bg" class="min-h-screen flex flex-col justify-center items-center text-center p-8 relative z-10">
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-pulse">
+      FlowState
+    </h1>
+    <p class="text-xl text-gray-400 mb-8 max-w-xl">
+      Crafting deep electronic journeys since 2003. Ambient. Techno. Soul.
+    </p>
+    <a href="#gallery" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl text-white font-semibold text-lg transition transform hover:scale-105 shadow-md">
+      Listen & Explore
+    </a>
   </section>
 
   <!-- About -->
@@ -34,9 +40,9 @@
   <section id="gallery" class="py-16 px-6">
     <h2 class="text-3xl font-semibold text-center mb-10 text-purple-400">My Work</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      <img src="https://placekitten.com/400/400" alt="Artwork 1" class="rounded-lg shadow-lg">
-      <img src="https://placekitten.com/401/400" alt="Artwork 2" class="rounded-lg shadow-lg">
-      <img src="https://placekitten.com/402/400" alt="Artwork 3" class="rounded-lg shadow-lg">
+      <img src="https://placekitten.com/400/400" alt="Artwork 1" class="rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
+      <img src="https://placekitten.com/401/400" alt="Artwork 2" class="rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
+      <img src="https://placekitten.com/402/400" alt="Artwork 3" class="rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
     </div>
   </section>
 
@@ -56,34 +62,21 @@
     &copy; 2025 FlowState. All rights reserved.
   </footer>
 
-<section id="vanta-bg" class="min-h-screen flex flex-col justify-center items-center text-center p-8 relative z-10">
-  <h1 class="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-pulse">
-    FlowState
-  </h1>
-  <p class="text-xl text-gray-400 mb-8 max-w-xl">
-    Crafting deep electronic journeys since 2003. Ambient. Techno. Soul.
-  </p>
-  <a href="#gallery" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl text-white font-semibold text-lg transition transform hover:scale-105 shadow-md">
-    Listen & Explore
-  </a>
-</section>
-<script>
-  VANTA.WAVES({
-    el: "#vanta-bg",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    shininess: 50,
-    waveHeight: 20,
-    waveSpeed: 0.7,
-    zoom: 1.2,
-    color: 0x6b21a8,          // purpurowy
-    backgroundColor: 0x111827 // ciemny szary
-  });
-</script>
+  <!-- Vanta Init -->
+  <script>
+    VANTA.WAVES({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      shininess: 50,
+      waveHeight: 20,
+      waveSpeed: 0.7,
+      zoom: 1.2,
+      color: 0x6b21a8,
+      backgroundColor: 0x111827
+    });
+  </script>
 
-
-
-  
 </body>
 </html>
